@@ -29,6 +29,7 @@
       html {
         width: 100%;
         height: 100%;
+        -webkit-font-smoothing: antialiased;
       }
 
       input,
@@ -104,6 +105,27 @@
         display: none;
       }
 
+      .menu-list {
+        display: block;
+        position: absolute;
+        right: 0;
+        width: calc(100vw - 135px);
+        height: 100vh;
+        background: transparent;
+        color: #aaa;
+        top: calc(110px);
+        display: none;
+      }
+
+      .menu-list li {
+        margin-bottom: 14px;
+      }
+      .menu-list a {
+        color: black;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
       /* 버튼을 눌렀을때 생기는 효과를 위한 클래스. (수직 수평 선) */
       #menu-button:hover {
         cursor: pointer;
@@ -119,7 +141,7 @@
         background: transparent;
         overflow: hidden;
 
-        left: 1rem;
+        left: 1.2rem;
       }
 
       .menu-button {
@@ -129,7 +151,7 @@
       }
 
       .menu-button.on {
-        top: 140px;
+        top: calc(110px);
       }
 
       .moreline {
@@ -217,8 +239,11 @@
         width: 87px;
         height: 47.7px;
         transition: 1s;
-        transition-timing-function: cubic-bezier(0.55, 0.17, 0.52, 0.98);
+        transition-timing-function: cubic-bezier(0.55, 0.17, 0.52, 1);
         transform-origin: 0px 0px;
+        -webkit-transition: 1s;
+        -webkit-transition-timing-function: cubic-bezier(0.55, 0.17, 0.52, 1);
+        -webkit-transform-origin: 0px 0px;
       }
 
       .zara-logo.open {
@@ -262,6 +287,11 @@
               },
               5000
             );
+          $(".menu-list")
+            .stop()
+            .delay(400)
+            .slideToggle(1100);
+
           $(".logo-wrap").toggleClass("open");
           $(".barline").toggleClass("open");
           $(".zara-logo").toggleClass("open");
@@ -325,6 +355,7 @@
         <div>
           <span class="search barline"></span>
         </div>
+
         <div class="logo-wrap">
           <a href="" class="logo">
             <svg
@@ -355,6 +386,19 @@
             placeholder="에서 검색하기"
           />
         </form>
+        <ul class="menu-list">
+          <li><a href="">NEW IN</a></li>
+          <li><a href="">BEST SELLER</a></li>
+          <li><a href="">WOMAN</a></li>
+          <li><a href="">TRF</a></li>
+          <li><a href="">MAN</a></li>
+          <li><a href="">KID</a></li>
+          <li><a href="">SHOES & BAGS</a></li>
+          <li><a href="">CORNERSHOPS</a></li>
+          <li><a href="">JOIN LIFE</a></li>
+          <li><a href="">STORIES</a></li>
+          <li><a href="">+ Info</a></li>
+        </ul>
       </div>
     </header>
 
